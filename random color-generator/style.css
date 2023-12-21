@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@500&family=Poppins:wght@100&family=Rubik+Bubbles&family=Rubik+Doodle+Shadow&family=Silkscreen&family=Whisper&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:Kalnia ;
+    /* background-color: black; */
+}
+body{
+    transition: 0.5s ;
+}
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.container{
+    width: 30rem;
+    height: 15rem ;
+    /* background-color:rgb(159, 153, 153) ; */
+    padding:15px ;
+    border-radius: 10px;
+    font-size: 40px;
+    text-align: center;
+
+
+}
+button{
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 10px;
+}
