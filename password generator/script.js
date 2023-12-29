@@ -11,7 +11,7 @@ const symbolsCheck = document.querySelector("#symbols");
 const indicator = document.querySelector("[data-indicator]");
 const generateBtn = document.querySelector(".generateButton");
 const allCheckBox = document.querySelectorAll("input[type=checkbox]");
-const symbols = '~`!@#$%^&*()_-+={[}]|:;"<,>.?/';
+const symbols = '~!@#$%^&*()_-+={[}]|:;"<,>.?/';
 
 
 let password ="";
@@ -105,7 +105,7 @@ console.log(passwordLength);
 
 
 
- function sufflePassword(array){
+ function shufflePassword(array){
 //fisher yates method
 for (let i = array.length - 1; i > 0; i--) {
    //random J, find out using random function
@@ -196,7 +196,7 @@ if(numbersCheck.checked){
    funArr.push(generateRandomNumber);
 }
 
-if(symbols.checked){
+if(symbolsCheck.checked){
    funArr.push(generateSymbol);
 }
 
@@ -211,14 +211,14 @@ console.log('compulsory addition');
 for (let i=0; i<passwordLength-funArr.length; i++){
    let randIndex = getRndInteger (0, funArr.length);
    //  console.log("randIndex" + randIndex);
-   password += funArr[randIndex]();
+   password += funArr[randIndex] () ; 
 }
 console.log('reamaining adition');
 
 //suffle password
-password = sufflePassword(Array.from(password));
+password = shufflePassword(Array.from(password));
 
-console.log('suffle password');
+console.log('shuffle password');
 //show in ui
 passwordDisplay.value = password;
 
