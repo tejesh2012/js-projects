@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div id="container">
         <h1>Password Generator</h1>
         <div class="display-container">
 
             <input readonly type="text" placeholder="Password" class="display" data-passwordDisplay >
-            <button data-copy>
-                <span data-copyMsg></span>
+            <button data-copy class="copyBtn">
+                <span data-copyMsg class="tooltip"></span>
                 <img src="copy.png" alt="" width="23px" height="23px">
             </button>
         </div>
@@ -24,26 +24,28 @@
             </div>
             <input type="range" min="1" max="20" class="slider" step="1" data-lengthSlider>
             
-            <div>
+
+            <!-- cheakbox -->
+            <div class="check">
                 <input type="checkbox" id="uppercase">
                 <label for="uppercase">Includes Uppercase Letters</label>
             </div>
-            <div>
+            <div class="check">
                 <input type="checkbox" id="lowercase">
                 <label for="lowercase ">Includes Lowercase Letters</label>
             </div>
-            <div>
+            <div class="check">
                 <input type="checkbox" id="numbers">
                 <label for="numbers">Includes Numbers</label>
             </div>
-            <div>
+            <div class="check">
                 <input type="checkbox" id="symbols">
                 <label for="symbols">Includes Symbols</label>
             </div>
 
             <div class="strength-container">
                 <p>Strength</p>
-                <div data-indocator></div>
+                <div  class="indicator"></div>
 
             </div>
             <button class="generateButton">Generate Password</button>
