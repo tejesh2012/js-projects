@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #weather-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            width: 300px;
+            max-width: 90%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #temperature {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        #error-message {
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="weather-container">
+        <h1>Weather App</h1>
+        <input type="text" id="search-input" placeholder="Enter city name">
+        <button onclick="searchWeather()" id="search-button">Search</button>
+        <div id="temperature"></div>
+        <div id="error-message"></div>
+    </div>
+
+    <script>
+        async function searchWeather() {
+            const cityName = document.getElementById('search-input').value;
+            const url = `https://open-weather13.p.rapidapi.com/city/${cityName}`;
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '2953f45aeemshec3150acaf3d200p1cbd56jsnc3a1d1e25c00',
+                    'X-RapidAPI-Host': 'open-weather13.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+
+                if (result.main && result.main.temp !== undefined) {
+                    const temperature = result.main.temp;
+                    document.getElementById('temperature').innerText = `Temperature in ${cityName}: ${temperature}°C`;
+                    document.getElementById('error-message').innerText = '';
+                } else {
+                    throw new Error('Temperature data not available in the response');
+                }
+            } catch (error) {
+                document.getElementById('error-message').innerText = error.message;
+                document.getElementById('temperature').innerText = '';
+            }
+        }
+    </script>
+</body>
+</html>
