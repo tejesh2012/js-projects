@@ -8,7 +8,84 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    tejesh chauhan
+    <div id="wrapper">
+        <div class="container">
+            <h1>Weather App</h1>
+            <div class="tab-container">
+                <p class="tab" data-userWeather >Your Weather</p>
+                <p class="tab" data-searchWeather>Search Weather</p>
+            </div>
+
+            <div class="weather-container">
+                <!-- grant location contaner -->
+                <div class="grant-location-container">
+                    <img src="assets/location.png" alt="" width="80" height="80" loading="lazy">
+                    <p>grant location Access</p>
+                    <p>Allow Access to get weather Information</p>
+                    <button class="btn" data-grantAccess>Grant Access</button>
+                </div>
+                <!-- SEARCH FORM -->
+                <form action="" class="form-container" data-searchForm>
+                    <input type="text" placeholder="Search for City">
+                    <button class="btn">
+                        <img src="assets/search.png" alt="" width="20" height="20" loading="lazy">
+                    </button>
+
+                </form>
+                <!-- loading screen container  -->
+                <div class="loading-container">
+                    <img src="assets/loading.gif" alt="" width="150" height="150">
+                    <p>loading</p>
+                </div>
+
+                <!-- show waether info   -->
+                <div class="user-info-container">
+
+                    <!-- city name flag  -->
+
+                    <div class="name">
+                        <p data-cityName></p>
+                        <img data-countryIcon>
+                    </div>
+                    <!-- weather discription   -->
+                    <p data-weatherDesc></p>
+                    <!-- weather icon  -->
+                    <img data-weatherIcon>
+
+                    <!--temprature-->
+                    <p data-temp></p>
+
+                    <!-- 3 cards parameters  -->
+                    <div class="parameter-container">
+                        <!-- card1  -->
+                        <div class="parameter">
+                            <img src="assets/wind.png" alt="">
+                            <p>windspeed</p>
+                            <p data-windSpeed></p>
+                        </div>
+
+                          <!-- card2  -->
+                          <div class="parameter">
+                            <img src="assets/humidity.png" alt="">
+                            <p>Humidity</p>
+                            <p data-humidity></p>
+                        </div>
+                        <!-- card3   -->
+                        <div class="parameter">
+                            <img src="assets/cloud.png" alt="">
+                            <p>Clouds</p>
+                            <p data-cloudiness></p>
+                        </div>
+                    </div>
+
+                  
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 
 
 
