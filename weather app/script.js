@@ -12,7 +12,7 @@ const userInfoContainer = document.querySelector(".user-info-container");
 let currentTab = userTab ;
 const API_KEY = "d1845658f92b31c64bd94f06f7188c9c";
 currentTab.classList.add("current-tab");
- //ak kam aur panding hai
+getformSessionStorage();
   
 function switchTab(clickedTab){
     if(clickedTab != currentTab){
@@ -84,6 +84,8 @@ function switchTab(clickedTab){
         loadingScreen.classList.remove("active")
 
     }
+ 
+
  }
 
  function renderWeatherInfo(weatherInfo){
@@ -99,6 +101,10 @@ function switchTab(clickedTab){
     const cloudiness = document.querySelector("[data-cloudiness]");
 
 
+
+    console.log(weatherInfo);
+
+    
        //fetch values from weatherINfo object and put it UI elements
     cityName.innerText = weatherInfo?.name;
     countryIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
@@ -108,7 +114,9 @@ function switchTab(clickedTab){
     windspeed.innerText = `${weatherInfo?.wind?.speed} m/s`;
     humidity.innerText = `${weatherInfo?.main?.humidity}%`;
     cloudiness.innerText = `${weatherInfo?.clouds?.all}%`;
+     
 
+    
 
  }
 
@@ -148,6 +156,7 @@ searchForm.addEventListener("submit", (e) => {
     else 
         fetchSearchWeatherInfo(cityName);
 })
+
 
 async function fetchSearchWeatherInfo(city) {
     loadingScreen.classList.add("active");
