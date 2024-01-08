@@ -95,7 +95,7 @@
 
                 if (result.main && result.main.temp !== undefined) {
                     const temperature = result.main.temp;
-                    document.getElementById('temperature').innerText = `Temperature in ${cityName}: ${temperature}°C`;
+                    document.getElementById('temperature').innerText = `Temperature in ${cityName}: ${temperature} F`;
                     document.getElementById('error-message').innerText = '';
                 } else {
                     throw new Error('Temperature data not available in the response');
