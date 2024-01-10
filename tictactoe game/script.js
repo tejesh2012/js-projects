@@ -1,12 +1,15 @@
 const boxes =document.querySelectorAll(".box");
-// .box is id
+// .box is class
 const gameInfo = document.querySelector(".game-info");
 const newGameBtn = document.querySelector(".btn");
+
+let firstPlayer  = prompt("Enter First Player Name");
+let secondPlayer = prompt("Enter First Player Name");
 
 
 // define variables
 let currentPlayer ;
-let gameGrid;
+let gameGrid; 
 
 const winingPositions = [
     [0,1,2],
@@ -35,7 +38,7 @@ function initGame(){
     
     // UI render
     newGameBtn.classList.remove("active");
-    gameInfo.innerText = `Current Player- ${currentPlayer}`;
+    gameInfo.innerText = `Current Player- ${firstPlayer}`;
 }
 initGame();
 
@@ -47,7 +50,12 @@ function swapTurn() {
         currentPlayer ="X";
     }
     // UI update
-    gameInfo.innerText = `Current Player- ${currentPlayer}` ;
+    if(currentPlayer === "X"){
+        gameInfo.innerText = `Current Player- ${firstPlayer}` ;
+    } else {
+        gameInfo.innerText = `Current Player- ${secondPlayer}` ;
+    }
+    // gameInfo.innerText = `Current Player- ${currentPlayer}` ;
 }
 
 // this function checks the game is over or not
@@ -79,7 +87,14 @@ function checkGameOver() {
 
     // it means we have  a winner
     if(answer !== ""){
-        gameInfo.innerText = `Winner Player - ${answer}`;
+        if (answer === "X"){
+            gameInfo.innerText = `Winner Player - ${firstPlayer}`;
+        }
+
+        else{
+            gameInfo.innerText = `Winner Player - ${secondPlayer}`;
+        }
+        // gameInfo.innerText = `Winner Player - ${answer}`;
         newGameBtn.classList.add("active");
         return;
     }
