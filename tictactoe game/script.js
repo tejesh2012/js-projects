@@ -4,7 +4,7 @@ const gameInfo = document.querySelector(".game-info");
 const newGameBtn = document.querySelector(".btn");
 
 let firstPlayer  = prompt("Enter First Player Name");
-let secondPlayer = prompt("Enter First Player Name");
+let secondPlayer = prompt("Enter Second Player Name");
 
 
 // define variables
